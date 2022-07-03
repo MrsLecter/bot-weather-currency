@@ -1,1 +1,1 @@
-worker: npm start -p $PORT
+worker: npm install && npm start -p $PORT

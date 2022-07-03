@@ -1,7 +1,8 @@
 const { io } = require("socket.io-client");
 const {TWENTYFIVE_MINUTES} = require("./src/constants");
+require('dotenv').config();
 
-const socket = io("https://telegram-infobot.herokuapp.com");
+const socket = io(`https://api.telegram.org/bot${process.env.BOT_TOKEN}/getMe`);
 
 socket.on("connect", () => {
   let timerId = setInterval(() => {

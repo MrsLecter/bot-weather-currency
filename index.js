@@ -15,22 +15,22 @@ const {IMAGE_URL, STICKER_URL, API_WEATHER } = require('./src/constants');
 // const program = new commander.Command();
 
 //--- socket ---
-// const express = require('express');
-// const app = express();
-// const http = require('http');
-// const server = http.createServer(app);
-// const { Server } = require("socket.io");
-// const io = new Server(server);
+const express = require('express');
+const app = express();
+const http = require('http');
+const server = http.createServer(app);
+const { Server } = require("socket.io");
+const io = new Server(server);
   
-// io.on("connection", (socket) => {
-//     socket.on("hello", (arg) => {
-//         bot.sendPhoto(process.env.CHAT_ID, `https://picsum.photos/200/300/?random${Math.floor(Math.random() * (5000 - 0)) + 0}`);
-//     });
-//   });
+io.on("connection", (socket) => {
+    socket.on("hello", (arg) => {
+        bot.sendPhoto(process.env.CHAT_ID, `https://picsum.photos/200/300/?random${Math.floor(Math.random() * (5000 - 0)) + 0}`);
+    });
+  });
   
-// server.listen(process.env.PORT, () => {
-//     console.log(`socket listening on : ${process.env.PORT}`);
-//   });
+server.listen(process.env.PORT, () => {
+    console.log(`socket listening on : ${process.env.PORT}`);
+  });
 //--- socket ---
 
 // ---handle command line argments ---
